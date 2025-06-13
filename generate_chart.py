@@ -471,17 +471,18 @@ def export_chart_data_json(df):
     
     # Color scheme matching the Python chart
     colors = {
-        "copilot": {"total": "#87CEEB", "merged": "#4682B4", "line": "#000080"},
-        "codex": {"total": "#FFA07A", "merged": "#CD5C5C", "line": "#8B0000"},
-        "cursor": {"total": "#DDA0DD", "merged": "#9370DB", "line": "#800080"},
-        "devin": {"total": "#98FB98", "merged": "#228B22", "line": "#006400"},
-        "codegen": {"total": "#FFE4B5", "merged": "#DAA520", "line": "#B8860B"}
+        "copilot": {"total": "#B0E0E6", "ready": "#87CEEB", "merged": "#4682B4", "line": "#000080"},
+        "codex": {"total": "#FFCCCB", "ready": "#FFA07A", "merged": "#CD5C5C", "line": "#8B0000"},
+        "cursor": {"total": "#E6E6FA", "ready": "#DDA0DD", "merged": "#9370DB", "line": "#800080"},
+        "devin": {"total": "#C8E6C9", "ready": "#98FB98", "merged": "#228B22", "line": "#006400"},
+        "codegen": {"total": "#FFF8DC", "ready": "#FFE4B5", "merged": "#DAA520", "line": "#B8860B"}
     }
     
-    # Add bar datasets for totals and merged PRs
+    # Add bar datasets for totals, ready, and merged PRs
     for agent in ["copilot", "codex", "cursor", "devin", "codegen"]:
         # Process data to replace leading zeros with None (null in JSON)
         total_data = df[f"{agent}_total"].tolist()
+        ready_data = df[f"{agent}_ready"].tolist()
         merged_data = df[f"{agent}_merged"].tolist()
         percentage_data = df[f"{agent}_percentage"].tolist()
         
@@ -496,6 +497,7 @@ def export_chart_data_json(df):
         if first_nonzero_idx is not None:
             for i in range(first_nonzero_idx):
                 total_data[i] = None
+                ready_data[i] = None
                 merged_data[i] = None
                 percentage_data[i] = None
         
@@ -506,6 +508,18 @@ def export_chart_data_json(df):
             "data": total_data,
             "backgroundColor": colors[agent]["total"],
             "borderColor": colors[agent]["total"],
+            "borderWidth": 1,
+            "yAxisID": "y",
+            "order": 2
+        })
+        
+        # Ready PRs (non-draft)
+        chart_data["datasets"].append({
+            "label": f"{agent.title()} Ready",
+            "type": "bar",
+            "data": ready_data,
+            "backgroundColor": colors[agent]["ready"],
+            "borderColor": colors[agent]["ready"],
             "borderWidth": 1,
             "yAxisID": "y",
             "order": 2

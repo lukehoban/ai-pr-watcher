@@ -11,6 +11,19 @@
         1000,
         1100
       ],
+      "backgroundColor": "#B0E0E6",
+      "borderColor": "#B0E0E6",
+      "borderWidth": 1,
+      "yAxisID": "y",
+      "order": 2
+    },
+    {
+      "label": "Copilot Ready",
+      "type": "bar",
+      "data": [
+        900,
+        1000
+      ],
       "backgroundColor": "#87CEEB",
       "borderColor": "#87CEEB",
       "borderWidth": 1,
@@ -52,6 +65,19 @@
       "data": [
         5000,
         5200
+      ],
+      "backgroundColor": "#FFCCCB",
+      "borderColor": "#FFCCCB",
+      "borderWidth": 1,
+      "yAxisID": "y",
+      "order": 2
+    },
+    {
+      "label": "Codex Ready",
+      "type": "bar",
+      "data": [
+        4500,
+        4700
       ],
       "backgroundColor": "#FFA07A",
       "borderColor": "#FFA07A",
@@ -95,6 +121,19 @@
         100,
         110
       ],
+      "backgroundColor": "#E6E6FA",
+      "borderColor": "#E6E6FA",
+      "borderWidth": 1,
+      "yAxisID": "y",
+      "order": 2
+    },
+    {
+      "label": "Cursor Ready",
+      "type": "bar",
+      "data": [
+        90,
+        100
+      ],
       "backgroundColor": "#DDA0DD",
       "borderColor": "#DDA0DD",
       "borderWidth": 1,
@@ -137,6 +176,19 @@
         500,
         520
       ],
+      "backgroundColor": "#C8E6C9",
+      "borderColor": "#C8E6C9",
+      "borderWidth": 1,
+      "yAxisID": "y",
+      "order": 2
+    },
+    {
+      "label": "Devin Ready",
+      "type": "bar",
+      "data": [
+        450,
+        470
+      ],
       "backgroundColor": "#98FB98",
       "borderColor": "#98FB98",
       "borderWidth": 1,
@@ -178,6 +230,19 @@
       "data": [
         200,
         210
+      ],
+      "backgroundColor": "#FFF8DC",
+      "borderColor": "#FFF8DC",
+      "borderWidth": 1,
+      "yAxisID": "y",
+      "order": 2
+    },
+    {
+      "label": "Codegen Ready",
+      "type": "bar",
+      "data": [
+        180,
+        190
       ],
       "backgroundColor": "#FFE4B5",
       "borderColor": "#FFE4B5",
