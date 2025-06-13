@@ -12,17 +12,22 @@ import requests
 # Basic headers for GitHub public API
 HEADERS = {"Accept": "application/vnd.github+json", "User-Agent": "PR-Watcher"}
 
-# Search queries - tracking merged PRs
+# Search queries - tracking merged PRs and non-draft PRs
 Q = {
     "is:pr+head:copilot/": "copilot_total",
+    "is:pr+head:copilot/-is:draft": "copilot_ready",
     "is:pr+head:copilot/+is:merged": "copilot_merged",
     "is:pr+head:codex/": "codex_total",
+    "is:pr+head:codex/-is:draft": "codex_ready",
     "is:pr+head:codex/+is:merged": "codex_merged",
     "is:pr+head:cursor/": "cursor_total",
+    "is:pr+head:cursor/-is:draft": "cursor_ready",
     "is:pr+head:cursor/+is:merged": "cursor_merged",
     "author:devin-ai-integration[bot]": "devin_total",
+    "author:devin-ai-integration[bot]+-is:draft": "devin_ready",
     "author:devin-ai-integration[bot]+is:merged": "devin_merged",
     "author:codegen-sh[bot]": "codegen_total",
+    "author:codegen-sh[bot]+-is:draft": "codegen_ready",
     "author:codegen-sh[bot]+is:merged": "codegen_merged",
 }
 
@@ -44,14 +49,19 @@ def collect_data():
     row = [
         timestamp,
         cnt["copilot_total"],
+        cnt["copilot_ready"],
         cnt["copilot_merged"],
         cnt["codex_total"],
+        cnt["codex_ready"],
         cnt["codex_merged"],
         cnt["cursor_total"],
+        cnt["cursor_ready"],
         cnt["cursor_merged"],
         cnt["devin_total"],
+        cnt["devin_ready"],
         cnt["devin_merged"],
         cnt["codegen_total"],
+        cnt["codegen_ready"],
         cnt["codegen_merged"],
     ]
 
@@ -64,14 +74,19 @@ def collect_data():
                 [
                     "timestamp",
                     "copilot_total",
+                    "copilot_ready",
                     "copilot_merged",
                     "codex_total",
+                    "codex_ready",
                     "codex_merged",
                     "cursor_total",
+                    "cursor_ready",
                     "cursor_merged",
                     "devin_total",
+                    "devin_ready",
                     "devin_merged",
                     "codegen_total",
+                    "codegen_ready",
                     "codegen_merged",
                 ]
             )

@@ -32,6 +32,7 @@
             <tr>
               <th class="agent-col">Coding Agent</th>
               <th class="metric-col">Total PRs</th>
+              <th class="metric-col">Ready for Review PRs</th>
               <th class="metric-col">Merged PRs</th>
               <th class="rate-col">Success Rate</th>
             </tr>
@@ -58,7 +59,16 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="copilot-total">{{COPILOT_TOTAL}}</span>
+                  <span id="copilot-total">1,100</span>
+                </a>
+              </td>
+              <td class="metric-cell">
+                <a
+                  href="https://github.com/search?q=is:pr+head:copilot/-is:draft&type=pullrequests"
+                  target="_blank"
+                  class="metric-link"
+                >
+                  <span id="copilot-ready">1,000</span>
                 </a>
               </td>
               <td class="metric-cell">
@@ -67,11 +77,11 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="copilot-merged">{{COPILOT_MERGED}}</span>
+                  <span id="copilot-merged">450</span>
                 </a>
               </td>
               <td class="rate-cell">
-                <span id="copilot-rate">{{COPILOT_RATE}}</span>
+                <span id="copilot-rate">45.0%</span>
               </td>
             </tr>
             <tr data-agent="codex">
@@ -95,7 +105,16 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="codex-total">{{CODEX_TOTAL}}</span>
+                  <span id="codex-total">5,200</span>
+                </a>
+              </td>
+              <td class="metric-cell">
+                <a
+                  href="https://github.com/search?q=is:pr+head:codex/-is:draft&type=pullrequests"
+                  target="_blank"
+                  class="metric-link"
+                >
+                  <span id="codex-ready">4,700</span>
                 </a>
               </td>
               <td class="metric-cell">
@@ -104,11 +123,11 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="codex-merged">{{CODEX_MERGED}}</span>
+                  <span id="codex-merged">3,900</span>
                 </a>
               </td>
               <td class="rate-cell">
-                <span id="codex-rate">{{CODEX_RATE}}</span>
+                <span id="codex-rate">83.0%</span>
               </td>
             </tr>
             <tr data-agent="cursor">
@@ -132,7 +151,16 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="cursor-total">{{CURSOR_TOTAL}}</span>
+                  <span id="cursor-total">110</span>
+                </a>
+              </td>
+              <td class="metric-cell">
+                <a
+                  href="https://github.com/search?q=is:pr+head:cursor/-is:draft&type=pullrequests"
+                  target="_blank"
+                  class="metric-link"
+                >
+                  <span id="cursor-ready">100</span>
                 </a>
               </td>
               <td class="metric-cell">
@@ -141,11 +169,11 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="cursor-merged">{{CURSOR_MERGED}}</span>
+                  <span id="cursor-merged">75</span>
                 </a>
               </td>
               <td class="rate-cell">
-                <span id="cursor-rate">{{CURSOR_RATE}}</span>
+                <span id="cursor-rate">75.0%</span>
               </td>
             </tr>
             <tr data-agent="devin">
@@ -169,7 +197,16 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="devin-total">{{DEVIN_TOTAL}}</span>
+                  <span id="devin-total">520</span>
+                </a>
+              </td>
+              <td class="metric-cell">
+                <a
+                  href="https://github.com/search?q=author:devin-ai-integration[bot]+-is:draft&type=pullrequests"
+                  target="_blank"
+                  class="metric-link"
+                >
+                  <span id="devin-ready">470</span>
                 </a>
               </td>
               <td class="metric-cell">
@@ -178,11 +215,11 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="devin-merged">{{DEVIN_MERGED}}</span>
+                  <span id="devin-merged">310</span>
                 </a>
               </td>
               <td class="rate-cell">
-                <span id="devin-rate">{{DEVIN_RATE}}</span>
+                <span id="devin-rate">66.0%</span>
               </td>
             </tr>
             <tr data-agent="codegen">
@@ -206,7 +243,16 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="codegen-total">{{CODEGEN_TOTAL}}</span>
+                  <span id="codegen-total">210</span>
+                </a>
+              </td>
+              <td class="metric-cell">
+                <a
+                  href="https://github.com/search?q=author:codegen-sh[bot]+-is:draft&type=pullrequests"
+                  target="_blank"
+                  class="metric-link"
+                >
+                  <span id="codegen-ready">190</span>
                 </a>
               </td>
               <td class="metric-cell">
@@ -215,11 +261,11 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="codegen-merged">{{CODEGEN_MERGED}}</span>
+                  <span id="codegen-merged">85</span>
                 </a>
               </td>
               <td class="rate-cell">
-                <span id="codegen-rate">{{CODEGEN_RATE}}</span>
+                <span id="codegen-rate">44.7%</span>
               </td>
             </tr>
           </tbody>
@@ -319,7 +365,7 @@
 
       <footer>
         <p>
-          Last updated: <span id="last-updated">June 13, 2025 18:01 UTC</span>
+          Last updated: <span id="last-updated">June 13, 2025 20:42 UTC</span>
         </p>
         <p>
           <a href="https://github.com/aavetis/ai-pr-watcher">View on GitHub</a>
