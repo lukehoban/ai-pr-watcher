@@ -15,13 +15,13 @@ HEADERS = {"Accept": "application/vnd.github+json", "User-Agent": "PR-Watcher"}
 # Search queries - tracking merged PRs and non-draft PRs
 Q = {
     "is:pr+head:copilot/": "copilot_total",
-    "is:pr+head:copilot/-is:draft": "copilot_ready",
+    "is:pr+head:copilot/+-is:draft": "copilot_ready",
     "is:pr+head:copilot/+is:merged": "copilot_merged",
     "is:pr+head:codex/": "codex_total",
-    "is:pr+head:codex/-is:draft": "codex_ready",
+    "is:pr+head:codex/+-is:draft": "codex_ready",
     "is:pr+head:codex/+is:merged": "codex_merged",
     "is:pr+head:cursor/": "cursor_total",
-    "is:pr+head:cursor/-is:draft": "cursor_ready",
+    "is:pr+head:cursor/+-is:draft": "cursor_ready",
     "is:pr+head:cursor/+is:merged": "cursor_merged",
     "author:devin-ai-integration[bot]": "devin_total",
     "author:devin-ai-integration[bot]+-is:draft": "devin_ready",
