@@ -1,15 +1,27 @@
 {
   "labels": [
-    "01/01 12:00",
-    "01/02 12:00"
+    "05/26 14:21",
+    "05/28 21:01",
+    "05/31 18:00",
+    "06/03 09:01",
+    "06/05 20:14",
+    "06/08 09:01",
+    "06/10 21:01",
+    "06/13 18:01"
   ],
   "datasets": [
     {
       "label": "Copilot Total",
       "type": "bar",
       "data": [
-        1000,
-        1100
+        8729,
+        9672,
+        10689,
+        11703,
+        12886,
+        13855,
+        14921,
+        16721
       ],
       "backgroundColor": "#B0E0E6",
       "borderColor": "#B0E0E6",
@@ -21,8 +33,14 @@
       "label": "Copilot Ready",
       "type": "bar",
       "data": [
-        900,
-        1000
+        7419,
+        8221,
+        9085,
+        9947,
+        10953,
+        11776,
+        12682,
+        14212
       ],
       "backgroundColor": "#87CEEB",
       "borderColor": "#87CEEB",
@@ -34,8 +52,14 @@
       "label": "Copilot Merged",
       "type": "bar",
       "data": [
-        400,
-        450
+        1594,
+        2250,
+        3037,
+        3891,
+        4573,
+        5231,
+        6207,
+        7457
       ],
       "backgroundColor": "#4682B4",
       "borderColor": "#4682B4",
@@ -47,8 +71,14 @@
       "label": "Copilot Success %",
       "type": "line",
       "data": [
-        44.44444444444444,
-        45.0
+        21.48537538751853,
+        27.368933219802944,
+        33.42872867363786,
+        39.11732180556952,
+        41.75111841504611,
+        44.42085597826087,
+        48.943384324239084,
+        52.469743878412615
       ],
       "borderColor": "#000080",
       "backgroundColor": "rgba(255, 255, 255, 0.8)",
@@ -63,8 +93,14 @@
       "label": "Codex Total",
       "type": "bar",
       "data": [
-        5000,
-        5200
+        54211,
+        63934,
+        72762,
+        80843,
+        142912,
+        195169,
+        246577,
+        299655
       ],
       "backgroundColor": "#FFCCCB",
       "borderColor": "#FFCCCB",
@@ -76,8 +112,14 @@
       "label": "Codex Ready",
       "type": "bar",
       "data": [
-        4500,
-        4700
+        46079,
+        54343,
+        61847,
+        68716,
+        121475,
+        165893,
+        209590,
+        254706
       ],
       "backgroundColor": "#FFA07A",
       "borderColor": "#FFA07A",
@@ -89,8 +131,14 @@
       "label": "Codex Merged",
       "type": "bar",
       "data": [
-        3800,
-        3900
+        44230,
+        52934,
+        60274,
+        67495,
+        117029,
+        161814,
+        206404,
+        252892
       ],
       "backgroundColor": "#CD5C5C",
       "borderColor": "#CD5C5C",
@@ -102,8 +150,14 @@
       "label": "Codex Success %",
       "type": "line",
       "data": [
-        84.44444444444444,
-        82.97872340425532
+        95.98732611384796,
+        97.4072097602267,
+        97.45662683719502,
+        98.22312125269224,
+        96.3399876517802,
+        97.54118618627669,
+        98.47988930769598,
+        99.28780633357675
       ],
       "borderColor": "#8B0000",
       "backgroundColor": "rgba(255, 255, 255, 0.8)",
@@ -118,8 +172,14 @@
       "label": "Cursor Total",
       "type": "bar",
       "data": [
-        100,
-        110
+        null,
+        null,
+        null,
+        null,
+        345,
+        648,
+        889,
+        1093
       ],
       "backgroundColor": "#E6E6FA",
       "borderColor": "#E6E6FA",
@@ -131,8 +191,14 @@
       "label": "Cursor Ready",
       "type": "bar",
       "data": [
-        90,
-        100
+        null,
+        null,
+        null,
+        null,
+        293,
+        550,
+        755,
+        929
       ],
       "backgroundColor": "#DDA0DD",
       "borderColor": "#DDA0DD",
@@ -144,8 +210,14 @@
       "label": "Cursor Merged",
       "type": "bar",
       "data": [
-        70,
-        75
+        null,
+        null,
+        null,
+        null,
+        255,
+        491,
+        670,
+        828
       ],
       "backgroundColor": "#9370DB",
       "borderColor": "#9370DB",
@@ -157,8 +229,14 @@
       "label": "Cursor Success %",
       "type": "line",
       "data": [
-        77.77777777777779,
-        75.0
+        null,
+        null,
+        null,
+        null,
+        87.03071672354949,
+        89.27272727272727,
+        88.74172185430463,
+        89.1280947255113
       ],
       "borderColor": "#800080",
       "backgroundColor": "rgba(255, 255, 255, 0.8)",
@@ -173,8 +251,14 @@
       "label": "Devin Total",
       "type": "bar",
       "data": [
-        500,
-        520
+        null,
+        null,
+        null,
+        27326,
+        27681,
+        27829,
+        28204,
+        28597
       ],
       "backgroundColor": "#C8E6C9",
       "borderColor": "#C8E6C9",
@@ -186,8 +270,14 @@
       "label": "Devin Ready",
       "type": "bar",
       "data": [
-        450,
-        470
+        null,
+        null,
+        null,
+        23227,
+        23528,
+        23654,
+        23973,
+        24307
       ],
       "backgroundColor": "#98FB98",
       "borderColor": "#98FB98",
@@ -199,8 +289,14 @@
       "label": "Devin Merged",
       "type": "bar",
       "data": [
-        300,
-        310
+        null,
+        null,
+        null,
+        16638,
+        16873,
+        16917,
+        17205,
+        17448
       ],
       "backgroundColor": "#228B22",
       "borderColor": "#228B22",
@@ -212,8 +308,14 @@
       "label": "Devin Success %",
       "type": "line",
       "data": [
-        66.66666666666666,
-        65.95744680851064
+        null,
+        null,
+        null,
+        71.63215223662117,
+        71.7145528731724,
+        71.51855922888306,
+        71.76823926917783,
+        71.78179125354836
       ],
       "borderColor": "#006400",
       "backgroundColor": "rgba(255, 255, 255, 0.8)",
@@ -228,8 +330,14 @@
       "label": "Codegen Total",
       "type": "bar",
       "data": [
-        200,
-        210
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        3918,
+        4048
       ],
       "backgroundColor": "#FFF8DC",
       "borderColor": "#FFF8DC",
@@ -241,8 +349,14 @@
       "label": "Codegen Ready",
       "type": "bar",
       "data": [
-        180,
-        190
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        3330,
+        3440
       ],
       "backgroundColor": "#FFE4B5",
       "borderColor": "#FFE4B5",
@@ -254,8 +368,14 @@
       "label": "Codegen Merged",
       "type": "bar",
       "data": [
-        80,
-        85
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1624,
+        1699
       ],
       "backgroundColor": "#DAA520",
       "borderColor": "#DAA520",
@@ -267,8 +387,14 @@
       "label": "Codegen Success %",
       "type": "line",
       "data": [
-        44.44444444444444,
-        44.73684210526316
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        48.768768768768766,
+        49.389534883720934
       ],
       "borderColor": "#B8860B",
       "backgroundColor": "rgba(255, 255, 255, 0.8)",
