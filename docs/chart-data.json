@@ -1,13 +1,13 @@
 {
   "labels": [
     "05/26 14:21",
-    "05/28 21:01",
-    "05/31 18:00",
-    "06/03 09:01",
-    "06/05 20:14",
-    "06/08 09:01",
-    "06/10 21:01",
-    "06/13 18:01"
+    "05/29 00:01",
+    "05/31 21:00",
+    "06/03 12:01",
+    "06/05 21:00",
+    "06/08 12:01",
+    "06/11 00:02",
+    "06/17 00:28"
   ],
   "datasets": [
     {
@@ -15,16 +15,35 @@
       "type": "bar",
       "data": [
         8729,
-        9672,
-        10689,
-        11703,
-        12886,
-        13855,
-        14921,
-        16721
+        9740,
+        10763,
+        11790,
+        12900,
+        13909,
+        15000,
+        16931
       ],
       "backgroundColor": "#87CEEB",
       "borderColor": "#87CEEB",
+      "borderWidth": 1,
+      "yAxisID": "y",
+      "order": 2
+    },
+    {
+      "label": "Copilot Ready",
+      "type": "bar",
+      "data": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        9504
+      ],
+      "backgroundColor": "#00BFFF",
+      "borderColor": "#00BFFF",
       "borderWidth": 1,
       "yAxisID": "y",
       "order": 2
@@ -34,13 +53,13 @@
       "type": "bar",
       "data": [
         1594,
-        2250,
-        3037,
-        3891,
-        4573,
-        5231,
-        6207,
-        7457
+        2286,
+        3089,
+        3944,
+        4585,
+        5282,
+        6257,
+        8789
       ],
       "backgroundColor": "#4682B4",
       "borderColor": "#4682B4",
@@ -52,14 +71,14 @@
       "label": "Copilot Success %",
       "type": "line",
       "data": [
-        18.260969183182496,
-        23.26302729528536,
-        28.412386565628218,
-        33.247885157651886,
-        35.48812664907652,
-        37.755322988090946,
-        41.59908853294015,
-        44.596615034985945
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        92.47685185185185
       ],
       "borderColor": "#000080",
       "backgroundColor": "rgba(255, 255, 255, 0.8)",
@@ -75,16 +94,35 @@
       "type": "bar",
       "data": [
         54211,
-        63934,
-        72762,
-        80843,
-        142912,
-        195169,
-        246577,
-        299655
+        65005,
+        73174,
+        81145,
+        143860,
+        197184,
+        249119,
+        353662
       ],
       "backgroundColor": "#FFA07A",
       "borderColor": "#FFA07A",
+      "borderWidth": 1,
+      "yAxisID": "y",
+      "order": 2
+    },
+    {
+      "label": "Codex Ready",
+      "type": "bar",
+      "data": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        348836
+      ],
+      "backgroundColor": "#FF4500",
+      "borderColor": "#FF4500",
       "borderWidth": 1,
       "yAxisID": "y",
       "order": 2
@@ -94,13 +132,13 @@
       "type": "bar",
       "data": [
         44230,
-        52934,
-        60274,
-        67495,
-        117029,
-        161814,
-        206404,
-        252892
+        53822,
+        60634,
+        67753,
+        117767,
+        163613,
+        208528,
+        300037
       ],
       "backgroundColor": "#CD5C5C",
       "borderColor": "#CD5C5C",
@@ -112,14 +150,14 @@
       "label": "Codex Success %",
       "type": "line",
       "data": [
-        81.58860747818709,
-        82.79475709325241,
-        82.83719523927324,
-        83.48898482243361,
-        81.88885467980296,
-        82.90968340258955,
-        83.70772618695175,
-        84.39438687824331
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        86.01090483780344
       ],
       "borderColor": "#8B0000",
       "backgroundColor": "rgba(255, 255, 255, 0.8)",
@@ -138,13 +176,32 @@
         null,
         null,
         null,
-        345,
-        648,
-        889,
-        1093
+        351,
+        653,
+        903,
+        1284
       ],
       "backgroundColor": "#DDA0DD",
       "borderColor": "#DDA0DD",
+      "borderWidth": 1,
+      "yAxisID": "y",
+      "order": 2
+    },
+    {
+      "label": "Cursor Ready",
+      "type": "bar",
+      "data": [
+        null,
+        null,
+        null,
+        null,
+        0,
+        0,
+        0,
+        1238
+      ],
+      "backgroundColor": "#BA55D3",
+      "borderColor": "#BA55D3",
       "borderWidth": 1,
       "yAxisID": "y",
       "order": 2
@@ -157,10 +214,10 @@
         null,
         null,
         null,
-        255,
-        491,
-        670,
-        828
+        259,
+        500,
+        677,
+        963
       ],
       "backgroundColor": "#9370DB",
       "borderColor": "#9370DB",
@@ -176,10 +233,10 @@
         null,
         null,
         null,
-        73.91304347826086,
-        75.77160493827161,
-        75.36557930258716,
-        75.7548032936871
+        0.0,
+        0.0,
+        0.0,
+        77.78675282714055
       ],
       "borderColor": "#800080",
       "backgroundColor": "rgba(255, 255, 255, 0.8)",
@@ -197,14 +254,33 @@
         null,
         null,
         null,
-        27326,
-        27681,
-        27829,
-        28204,
-        28597
+        27351,
+        27686,
+        27841,
+        28229,
+        27749
       ],
       "backgroundColor": "#98FB98",
       "borderColor": "#98FB98",
+      "borderWidth": 1,
+      "yAxisID": "y",
+      "order": 2
+    },
+    {
+      "label": "Devin Ready",
+      "type": "bar",
+      "data": [
+        null,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        26979
+      ],
+      "backgroundColor": "#32CD32",
+      "borderColor": "#32CD32",
       "borderWidth": 1,
       "yAxisID": "y",
       "order": 2
@@ -216,11 +292,11 @@
         null,
         null,
         null,
-        16638,
-        16873,
-        16917,
-        17205,
-        17448
+        16652,
+        16875,
+        16930,
+        17213,
+        17707
       ],
       "backgroundColor": "#228B22",
       "borderColor": "#228B22",
@@ -235,11 +311,11 @@
         null,
         null,
         null,
-        60.887067261948324,
-        60.95516780463134,
-        60.78910489058177,
-        61.00198553396682,
-        61.013393013253136
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        65.63252900404018
       ],
       "borderColor": "#006400",
       "backgroundColor": "rgba(255, 255, 255, 0.8)",
@@ -260,11 +336,30 @@
         null,
         null,
         null,
-        3918,
-        4048
+        3926,
+        3876
       ],
       "backgroundColor": "#FFE4B5",
       "borderColor": "#FFE4B5",
+      "borderWidth": 1,
+      "yAxisID": "y",
+      "order": 2
+    },
+    {
+      "label": "Codegen Ready",
+      "type": "bar",
+      "data": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        1815
+      ],
+      "backgroundColor": "#FFD700",
+      "borderColor": "#FFD700",
       "borderWidth": 1,
       "yAxisID": "y",
       "order": 2
@@ -279,8 +374,8 @@
         null,
         null,
         null,
-        1624,
-        1699
+        1631,
+        1541
       ],
       "backgroundColor": "#DAA520",
       "borderColor": "#DAA520",
@@ -298,8 +393,8 @@
         null,
         null,
         null,
-        41.44971924451251,
-        41.97134387351779
+        0.0,
+        84.90358126721763
       ],
       "borderColor": "#B8860B",
       "backgroundColor": "rgba(255, 255, 255, 0.8)",

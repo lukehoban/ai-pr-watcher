@@ -47,40 +47,40 @@ def generate_chart(csv_file=None):
     # Calculate percentages with safety checks
     df["copilot_percentage"] = df.apply(
         lambda row: (
-            (row["copilot_merged"] / row["copilot_total"] * 100)
-            if row["copilot_total"] > 0
+            (row["copilot_merged"] / row["copilot_ready"] * 100)
+            if row["copilot_ready"] > 0
             else 0
         ),
         axis=1,
     )
     df["codex_percentage"] = df.apply(
         lambda row: (
-            (row["codex_merged"] / row["codex_total"] * 100)
-            if row["codex_total"] > 0
+            (row["codex_merged"] / row["codex_ready"] * 100)
+            if row["codex_ready"] > 0
             else 0
         ),
         axis=1,
     )
     df["cursor_percentage"] = df.apply(
         lambda row: (
-            (row["cursor_merged"] / row["cursor_total"] * 100)
-            if row["cursor_total"] > 0
+            (row["cursor_merged"] / row["cursor_ready"] * 100)
+            if row["cursor_ready"] > 0
             else 0
         ),
         axis=1,
     )
     df["devin_percentage"] = df.apply(
         lambda row: (
-            (row["devin_merged"] / row["devin_total"] * 100)
-            if row["devin_total"] > 0
+            (row["devin_merged"] / row["devin_ready"] * 100)
+            if row["devin_ready"] > 0
             else 0
         ),
         axis=1,
     )
     df["codegen_percentage"] = df.apply(
         lambda row: (
-            (row["codegen_merged"] / row["codegen_total"] * 100)
-            if row["codegen_total"] > 0
+            (row["codegen_merged"] / row["codegen_ready"] * 100)
+            if row["codegen_ready"] > 0
             else 0
         ),
         axis=1,
@@ -426,17 +426,18 @@ def export_chart_data_json(df):
     
     # Color scheme matching the Python chart
     colors = {
-        "copilot": {"total": "#87CEEB", "merged": "#4682B4", "line": "#000080"},
-        "codex": {"total": "#FFA07A", "merged": "#CD5C5C", "line": "#8B0000"},
-        "cursor": {"total": "#DDA0DD", "merged": "#9370DB", "line": "#800080"},
-        "devin": {"total": "#98FB98", "merged": "#228B22", "line": "#006400"},
-        "codegen": {"total": "#FFE4B5", "merged": "#DAA520", "line": "#B8860B"}
+        "copilot": {"total": "#87CEEB", "ready": "#00BFFF", "merged": "#4682B4", "line": "#000080"},
+        "codex": {"total": "#FFA07A", "ready": "#FF4500", "merged": "#CD5C5C", "line": "#8B0000"},
+        "cursor": {"total": "#DDA0DD", "ready": "#BA55D3", "merged": "#9370DB", "line": "#800080"},
+        "devin": {"total": "#98FB98", "ready": "#32CD32", "merged": "#228B22", "line": "#006400"},
+        "codegen": {"total": "#FFE4B5", "ready": "#FFD700", "merged": "#DAA520", "line": "#B8860B"}
     }
     
     # Add bar datasets for totals and merged PRs
     for agent in ["copilot", "codex", "cursor", "devin", "codegen"]:
         # Process data to replace leading zeros with None (null in JSON)
         total_data = df[f"{agent}_total"].tolist()
+        ready_data = df[f"{agent}_ready"].tolist()
         merged_data = df[f"{agent}_merged"].tolist()
         percentage_data = df[f"{agent}_percentage"].tolist()
         
@@ -451,6 +452,7 @@ def export_chart_data_json(df):
         if first_nonzero_idx is not None:
             for i in range(first_nonzero_idx):
                 total_data[i] = None
+                ready_data[i] = None
                 merged_data[i] = None
                 percentage_data[i] = None
         
@@ -465,7 +467,19 @@ def export_chart_data_json(df):
             "yAxisID": "y",
             "order": 2
         })
-        
+
+        # Ready for Review PRs
+        chart_data["datasets"].append({
+            "label": f"{agent.title()} Ready",
+            "type": "bar",
+            "data": ready_data,
+            "backgroundColor": colors[agent]["ready"],
+            "borderColor": colors[agent]["ready"],
+            "borderWidth": 1,
+            "yAxisID": "y",
+            "order": 2
+        })
+
         # Merged PRs
         chart_data["datasets"].append({
             "label": f"{agent.title()} Merged",
@@ -523,26 +537,31 @@ def update_readme(df):
 
     # Format numbers with commas
     copilot_total = f"{latest.copilot_total:,}"
+    copilot_ready = f"{latest.copilot_ready:,}"
     copilot_merged = f"{latest.copilot_merged:,}"
     codex_total = f"{latest.codex_total:,}"
+    codex_ready = f"{latest.codex_ready:,}"
     codex_merged = f"{latest.codex_merged:,}"
     cursor_total = f"{latest.cursor_total:,}"
+    cursor_ready = f"{latest.cursor_ready:,}"
     cursor_merged = f"{latest.cursor_merged:,}"
     devin_total = f"{latest.devin_total:,}"
+    devin_ready = f"{latest.devin_ready:,}"
     devin_merged = f"{latest.devin_merged:,}"
     codegen_total = f"{latest.codegen_total:,}"
+    codegen_ready = f"{latest.codegen_ready:,}"
     codegen_merged = f"{latest.codegen_merged:,}"
 
     # Create the new table content
     table_content = f"""## Current Statistics
 
-| Project | Total PRs | Merged PRs | Merge Rate |
-| ------- | --------- | ---------- | ---------- |
-| Copilot | {copilot_total} | {copilot_merged} | {copilot_rate:.2f}% |
-| Codex   | {codex_total} | {codex_merged} | {codex_rate:.2f}% |
-| Cursor  | {cursor_total} | {cursor_merged} | {cursor_rate:.2f}% |
-| Devin   | {devin_total} | {devin_merged} | {devin_rate:.2f}% |
-| Codegen | {codegen_total} | {codegen_merged} | {codegen_rate:.2f}% |"""
+| Project | Total PRs | Ready for Review PRs | Merged PRs | Merge Rate |
+| ------- | --------- | ---------- | ---------- | ----------- |
+| Copilot | {copilot_total} | {copilot_ready} | {copilot_merged} | {copilot_rate:.2f}% |
+| Codex   | {codex_total} | {codex_ready} | {codex_merged} | {codex_rate:.2f}% |
+| Cursor  | {cursor_total} | {cursor_ready} | {cursor_merged} | {cursor_rate:.2f}% |
+| Devin   | {devin_total} | {devin_ready} | {devin_merged} | {devin_rate:.2f}% |
+| Codegen | {codegen_total} | {codegen_ready} | {codegen_merged} | {codegen_rate:.2f}% |"""
 
     # Read the current README content
     readme_content = readme_path.read_text()
@@ -573,22 +592,27 @@ def update_github_pages(df):
     latest = df.iloc[-1]
     
     # Calculate merge rates
-    copilot_rate = latest.copilot_merged / latest.copilot_total * 100
-    codex_rate = latest.codex_merged / latest.codex_total * 100
-    cursor_rate = latest.cursor_merged / latest.cursor_total * 100 if latest.cursor_total > 0 else 0
-    devin_rate = latest.devin_merged / latest.devin_total * 100 if latest.devin_total > 0 else 0
-    codegen_rate = latest.codegen_merged / latest.codegen_total * 100 if latest.codegen_total > 0 else 0
+    copilot_rate = latest.copilot_merged / latest.copilot_ready * 100
+    codex_rate = latest.codex_merged / latest.codex_ready * 100
+    cursor_rate = latest.cursor_merged / latest.cursor_ready * 100 if latest.cursor_ready > 0 else 0
+    devin_rate = latest.devin_merged / latest.devin_ready * 100 if latest.devin_ready > 0 else 0
+    codegen_rate = latest.codegen_merged / latest.codegen_ready * 100 if latest.codegen_ready > 0 else 0
 
     # Format numbers with commas
     copilot_total = f"{latest.copilot_total:,}"
+    copilot_ready = f"{latest.copilot_ready:,}"
     copilot_merged = f"{latest.copilot_merged:,}"
     codex_total = f"{latest.codex_total:,}"
+    codex_ready = f"{latest.codex_ready:,}"
     codex_merged = f"{latest.codex_merged:,}"
     cursor_total = f"{latest.cursor_total:,}"
+    cursor_ready = f"{latest.cursor_ready:,}"
     cursor_merged = f"{latest.cursor_merged:,}"
     devin_total = f"{latest.devin_total:,}"
+    devin_ready = f"{latest.devin_ready:,}"
     devin_merged = f"{latest.devin_merged:,}"
     codegen_total = f"{latest.codegen_total:,}"
+    codegen_ready = f"{latest.codegen_ready:,}"
     codegen_merged = f"{latest.codegen_merged:,}"
     
     # Current timestamp for last updated
@@ -599,32 +623,32 @@ def update_github_pages(df):
     
     # Update the table data
     index_content = re.sub(
-        r'<td>Copilot</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>',
-        f'<td>Copilot</td>\n                        <td>{copilot_total}</td>\n                        <td>{copilot_merged}</td>\n                        <td>{copilot_rate:.2f}%</td>',
+        r'<td>Copilot</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>',
+        f'<td>Copilot</td>\n                        <td>{copilot_total}</td>                        <td>{copilot_ready}</td>\n                        <td>{copilot_merged}</td>\n                        <td>{copilot_rate:.2f}%</td>',
         index_content
     )
     
     index_content = re.sub(
-        r'<td>Codex</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>',
-        f'<td>Codex</td>\n                        <td>{codex_total}</td>\n                        <td>{codex_merged}</td>\n                        <td>{codex_rate:.2f}%</td>',
+        r'<td>Codex</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>',
+        f'<td>Codex</td>\n                        <td>{codex_total}</td>                        <td>{codex_ready}</td>\n                        <td>{codex_merged}</td>\n                        <td>{codex_rate:.2f}%</td>',
         index_content
     )
     
     index_content = re.sub(
-        r'<td>Cursor</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>',
-        f'<td>Cursor</td>\n                        <td>{cursor_total}</td>\n                        <td>{cursor_merged}</td>\n                        <td>{cursor_rate:.2f}%</td>',
+        r'<td>Cursor</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>',
+        f'<td>Cursor</td>\n                        <td>{cursor_total}</td>                        <td>{cursor_ready}</td>\n                        <td>{cursor_merged}</td>\n                        <td>{cursor_rate:.2f}%</td>',
         index_content
     )
     
     index_content = re.sub(
-        r'<td>Devin</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>',
-        f'<td>Devin</td>\n                        <td>{devin_total}</td>\n                        <td>{devin_merged}</td>\n                        <td>{devin_rate:.2f}%</td>',
+        r'<td>Devin</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>',
+        f'<td>Devin</td>\n                        <td>{devin_total}</td>                        <td>{devin_ready}</td>\n                        <td>{devin_merged}</td>\n                        <td>{devin_rate:.2f}%</td>',
         index_content
     )
     
     index_content = re.sub(
-        r'<td>Codegen</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>',
-        f'<td>Codegen</td>\n                        <td>{codegen_total}</td>\n                        <td>{codegen_merged}</td>\n                        <td>{codegen_rate:.2f}%</td>',
+        r'<td>Codegen</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>\s*<td>[^<]*</td>',
+        f'<td>Codegen</td>\n                        <td>{codegen_total}</td>                        <td>{codegen_ready}</td>\n                        <td>{codegen_merged}</td>\n                        <td>{codegen_rate:.2f}%</td>',
         index_content
     )
     
