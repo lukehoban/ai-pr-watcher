@@ -32,6 +32,7 @@
             <tr>
               <th class="agent-col">Coding Agent</th>
               <th class="metric-col">Total PRs</th>
+              <th class="metric-col">Ready for Review PRs</th>
               <th class="metric-col">Merged PRs</th>
               <th class="rate-col">Success Rate</th>
             </tr>
@@ -58,7 +59,16 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="copilot-total">{{COPILOT_TOTAL}}</span>
+                  <span id="copilot-total">16,721</span>
+                </a>
+              </td>
+              <td class="metric-cell">
+                <a
+                  href="https://github.com/search?q=is:pr+head:copilot/+-is:draft&type=pullrequests"
+                  target="_blank"
+                  class="metric-link"
+                >
+                  <span id="copilot-ready">14,212</span>
                 </a>
               </td>
               <td class="metric-cell">
@@ -67,11 +77,11 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="copilot-merged">{{COPILOT_MERGED}}</span>
+                  <span id="copilot-merged">7,457</span>
                 </a>
               </td>
               <td class="rate-cell">
-                <span id="copilot-rate">{{COPILOT_RATE}}</span>
+                <span id="copilot-rate">52.5%</span>
               </td>
             </tr>
             <tr data-agent="codex">
@@ -95,7 +105,16 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="codex-total">{{CODEX_TOTAL}}</span>
+                  <span id="codex-total">299,655</span>
+                </a>
+              </td>
+              <td class="metric-cell">
+                <a
+                  href="https://github.com/search?q=is:pr+head:codex/+-is:draft&type=pullrequests"
+                  target="_blank"
+                  class="metric-link"
+                >
+                  <span id="codex-ready">254,706</span>
                 </a>
               </td>
               <td class="metric-cell">
@@ -104,11 +123,11 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="codex-merged">{{CODEX_MERGED}}</span>
+                  <span id="codex-merged">252,892</span>
                 </a>
               </td>
               <td class="rate-cell">
-                <span id="codex-rate">{{CODEX_RATE}}</span>
+                <span id="codex-rate">99.3%</span>
               </td>
             </tr>
             <tr data-agent="cursor">
@@ -132,7 +151,16 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="cursor-total">{{CURSOR_TOTAL}}</span>
+                  <span id="cursor-total">1,093</span>
+                </a>
+              </td>
+              <td class="metric-cell">
+                <a
+                  href="https://github.com/search?q=is:pr+head:cursor/+-is:draft&type=pullrequests"
+                  target="_blank"
+                  class="metric-link"
+                >
+                  <span id="cursor-ready">929</span>
                 </a>
               </td>
               <td class="metric-cell">
@@ -141,11 +169,11 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="cursor-merged">{{CURSOR_MERGED}}</span>
+                  <span id="cursor-merged">828</span>
                 </a>
               </td>
               <td class="rate-cell">
-                <span id="cursor-rate">{{CURSOR_RATE}}</span>
+                <span id="cursor-rate">89.1%</span>
               </td>
             </tr>
             <tr data-agent="devin">
@@ -169,7 +197,16 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="devin-total">{{DEVIN_TOTAL}}</span>
+                  <span id="devin-total">28,597</span>
+                </a>
+              </td>
+              <td class="metric-cell">
+                <a
+                  href="https://github.com/search?q=author:devin-ai-integration[bot]+-is:draft&type=pullrequests"
+                  target="_blank"
+                  class="metric-link"
+                >
+                  <span id="devin-ready">24,307</span>
                 </a>
               </td>
               <td class="metric-cell">
@@ -178,11 +215,11 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="devin-merged">{{DEVIN_MERGED}}</span>
+                  <span id="devin-merged">17,448</span>
                 </a>
               </td>
               <td class="rate-cell">
-                <span id="devin-rate">{{DEVIN_RATE}}</span>
+                <span id="devin-rate">71.8%</span>
               </td>
             </tr>
             <tr data-agent="codegen">
@@ -206,7 +243,16 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="codegen-total">{{CODEGEN_TOTAL}}</span>
+                  <span id="codegen-total">4,048</span>
+                </a>
+              </td>
+              <td class="metric-cell">
+                <a
+                  href="https://github.com/search?q=author:codegen-sh[bot]+-is:draft&type=pullrequests"
+                  target="_blank"
+                  class="metric-link"
+                >
+                  <span id="codegen-ready">3,440</span>
                 </a>
               </td>
               <td class="metric-cell">
@@ -215,11 +261,11 @@
                   target="_blank"
                   class="metric-link"
                 >
-                  <span id="codegen-merged">{{CODEGEN_MERGED}}</span>
+                  <span id="codegen-merged">1,699</span>
                 </a>
               </td>
               <td class="rate-cell">
-                <span id="codegen-rate">{{CODEGEN_RATE}}</span>
+                <span id="codegen-rate">49.4%</span>
               </td>
             </tr>
           </tbody>
@@ -319,7 +365,7 @@
 
       <footer>
         <p>
-          Last updated: <span id="last-updated">June 13, 2025 18:01 UTC</span>
+          Last updated: <span id="last-updated">June 17, 2025 00:40 UTC</span>
         </p>
         <p>
           <a href="https://github.com/aavetis/ai-pr-watcher">View on GitHub</a>
@@ -463,23 +509,31 @@
               d.label.toLowerCase().includes(agent) &&
               d.label.toLowerCase().includes("total")
           );
+          const readyDataset = chartData.datasets.find(
+            (d) =>
+              d.label.toLowerCase().includes(agent) &&
+              d.label.toLowerCase().includes("ready")
+          );
           const mergedDataset = chartData.datasets.find(
             (d) =>
               d.label.toLowerCase().includes(agent) &&
               d.label.toLowerCase().includes("merged")
           );
 
-          if (totalDataset && mergedDataset) {
+          if (totalDataset && readyDataset && mergedDataset) {
             const total = totalDataset.data[latestIndex] || 0;
+            const ready = readyDataset.data[latestIndex] || 0;
             const merged = mergedDataset.data[latestIndex] || 0;
-            const rate = total > 0 ? (merged / total) * 100 : 0;
+            const rate = ready > 0 ? (merged / ready) * 100 : 0;
 
             // Update table cells
             const totalElement = document.getElementById(`${agent}-total`);
+            const readyElement = document.getElementById(`${agent}-ready`);
             const mergedElement = document.getElementById(`${agent}-merged`);
             const rateElement = document.getElementById(`${agent}-rate`);
 
             if (totalElement) totalElement.textContent = total.toLocaleString();
+            if (readyElement) readyElement.textContent = ready.toLocaleString();
             if (mergedElement)
               mergedElement.textContent = merged.toLocaleString();
             if (rateElement) rateElement.textContent = rate.toFixed(1) + "%";
